@@ -1,17 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import * from 'expo-font';
+import * as Font from 'expo-font';
 import { AppLoading } from "expo";
+import MealsNavigator from "./navigation/MealsNavigator";
 
-const fetchFonts = () =>{
-  return(
-    Fonts.loadAsync({
-      'rubik-regular':require('/assets/rubik-regular.ttf'),
-      'rebik-medium':require('./assets/rubik-medium.ttf')
-    })
-  )
-}
+const fetchFonts = () => {
+  return Fonts.loadAsync({
+      'rubik-regular':require('./assets/rubik_regular.ttf'),
+      'rebik-medium':require('./assets/rubik_medium.ttf')
+    });
+};
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false)
@@ -25,10 +24,7 @@ export default function App() {
     );
   }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MealsNavigator/>
   );
 }
 
