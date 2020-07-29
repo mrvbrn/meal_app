@@ -8,7 +8,7 @@ import MealsNavigator from "./navigation/MealsNavigator";
 const fetchFonts = () => {
   return Fonts.loadAsync({
       'rubik-regular':require('./assets/rubik_regular.ttf'),
-      'rebik-medium':require('./assets/rubik_medium.ttf')
+      'rubik-medium':require('./assets/rubik_medium.ttf')
     });
 };
 
