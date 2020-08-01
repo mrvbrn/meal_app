@@ -1,14 +1,16 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
+import { MEALS } from "../data/dummy-data";
 
 const MealDetailsScreen = props => {
+    const mealId = props.navigation.getParam('mealId')
+    const selectedMeal = MEALS.find(meal => meal.id === mealId)
     return(
         <View style={styles.screen}>
-          <Text> The Meal Detais Screen</Text>
+          <Text>{selectedMeal.title}</Text>
           <Button title="Go Back to Category" onPress={()=>props.navigation.popToTop()}/>
         </View>
     );
-
 };
 
 const styles = StyleSheet.create({
@@ -19,5 +21,13 @@ const styles = StyleSheet.create({
     }
 
 });
+
+MealDetailsScreen.navigationOptions = navigationData => {
+    const mealId = navigationData.navigation.getParam('mealId');
+    const selectedMeal = MEALS.find(meal => meal.id  === mealId);
+    return{
+        headerTitle:selectedMeal.title
+    };
+};
 
 export default MealDetailsScreen;
