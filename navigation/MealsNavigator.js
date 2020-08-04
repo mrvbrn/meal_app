@@ -91,9 +91,6 @@ const MealsFavTabNavigator =
     : createBottomTabNavigator(tabScreenConfig,{
         tabBarOptions:{
           activeTintColor:Colors.accentColor,
-          labelStyle:{
-             fontFamily:'rubik-medium'
-        }
         },
        
     });

@@ -10,7 +10,9 @@ const DefaultText = props => {
 };
 
 const styles=StyleSheet.create({
-    fontFamily:'rubik-regular'
+    text:{
+        fontFamily:'rubik-regular'
+    }
 });
 
 
