@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { Platform, Text } from "react-native";
 import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from 'react-navigation';
@@ -17,7 +17,13 @@ const defaultTabScreen = {
     headerStyle:{
       backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
     },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+    headerTitleStyle:{
+        fontFamily:'rubik-medium'
+    },
+    headerBackTitleStyle:{
+        fontFamily:'rubik-regular'
+    }
 }
 
 
@@ -58,22 +64,23 @@ const tabScreenConfig = {
           <Ionicons name="ios-restaurant" size={25} color={tabInfo.tintColor}/>
         )
       },
-      tabBarColor:Colors.primaryColor
+      tabBarColor:Colors.primaryColor,
+      tabBarLabel: <Text style={{fontFamily:'rubik-medium'}}>Meals</Text>    
     }
   },
   Favorites : {
     screen:FavNavigator,
     navigationOptions:{
-      tabBarLabel:'Favorites!',
+      tabBarLabel:<Text style={{fontFamily:'rubik-medium'}}>Favorites</Text>,
       tabBarColor:Colors.accentColor,
       tabBarIcon:(tabInfo)=> {
-          return(
-            <Ionicons name="ios-star" size={25} color={tabInfo.tintColor}/>
-          )
-        }
+        return(
+          <Ionicons name="ios-star" size={25} color={tabInfo.tintColor}/>
+        )
       }
+    },
   }
-}
+};
 
 const MealsFavTabNavigator = 
   Platform.OS === 'android' 
@@ -83,8 +90,12 @@ const MealsFavTabNavigator =
     })
     : createBottomTabNavigator(tabScreenConfig,{
         tabBarOptions:{
-          activeTintColor:Colors.accentColor
+          activeTintColor:Colors.accentColor,
+          labelStyle:{
+             fontFamily:'rubik-medium'
         }
+        },
+       
     });
 
 

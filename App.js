@@ -6,7 +6,7 @@ import { AppLoading } from "expo";
 import MealsNavigator from "./navigation/MealsNavigator";
 
 const fetchFonts = () => {
-  return Fonts.loadAsync({
+  return Font.loadAsync({
       'rubik-regular':require('./assets/rubik_regular.ttf'),
       'rubik-medium':require('./assets/rubik_medium.ttf')
     });
