@@ -44,7 +44,10 @@ const FavNavigator = createStackNavigator({
 
 const FilterNavigator = createStackNavigator({
     Filters: FiltersScreen
-})
+},{
+    defaultNavigationOptions:defaultTabScreen
+  }
+)
 
 const tabScreenConfig = {
   Meals : {
@@ -87,9 +90,22 @@ const MealsFavTabNavigator =
 
 
 const MainNavigator = createDrawerNavigator({
-    MealsFav : MealsFavTabNavigator,
+    MealsFav : {
+        screen:MealsFavTabNavigator,
+        navigationOptions:{
+            drawerLabel:'Meals'
+        }
+    },
     Filters : FilterNavigator
-});
+},{
+    contentOptions:{
+        activeTintColor:Colors.accentColor,
+        labelStyle:{
+            fontFamily:'rubik-medium'
+        }
+    }
+}
+);
 
 
 export default createAppContainer(MainNavigator);
