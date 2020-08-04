@@ -3,11 +3,13 @@ import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import CategoryMealsScreen from "../screens/CategoryMealsScreen";
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import CategorysScreen from "../screens/CategorysScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
 import MealDetailsScreen from "../screens/MealDetailsScreen";
+import FiltersScreen from "../screens/FiltersScreen";
+import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import Colors from "../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -39,6 +41,10 @@ const FavNavigator = createStackNavigator({
       defaultNavigationOptions:defaultTabScreen
     }
 );
+
+const FilterNavigator = createStackNavigator({
+    Filters: FiltersScreen
+})
 
 const tabScreenConfig = {
   Meals : {
@@ -79,4 +85,11 @@ const MealsFavTabNavigator =
     });
 
 
-export default createAppContainer(MealsFavTabNavigator);
+
+const MainNavigator = createDrawerNavigator({
+    MealsFav : MealsFavTabNavigator,
+    Filters : FilterNavigator
+});
+
+
+export default createAppContainer(MainNavigator);
